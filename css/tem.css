@@ -1,0 +1,229 @@
+@font-face {
+    font-family: "Ailerons";
+    src: href(fonts/Ailerons-Typeface.otf) format('otf');
+}
+
+:root {
+    --royal: rgb(26, 35, 126);
+    --back-box: rgba(0, 229, 255, .1);
+    --sec-back-box: rgba(13, 71, 161, .8);
+    --gold: rgb(255, 234, 0);
+}
+
+body {
+    overflow: scroll;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: var(--royal);
+}
+
+.container {
+    padding-top: 10px;
+    margin: 0;
+    height: 100vh;
+    min-height: 1000px;
+    /* min-height is what prevents containers from overlapping on smaller screens*/
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding-bottom: 5px;
+    
+}
+/* center div within div using m, jc, p */
+.peep {
+    display: flex;
+    width: 75%;
+    height: 75%;
+    margin: 50 auto;
+    justify-content: center;
+    position: relative;
+    box-shadow: 3px 3px 5px rgba(255, 245, 157, .4);
+}
+
+.box-01 {
+    width: 45%;
+    height: 80%;
+    background: var(--back-box);
+    position: absolute;
+    left: 8%;
+    top: -15%;
+    border-radius: 6px;
+}
+
+.box-01 img {
+    display: flex;
+    width: 100%;
+    max-height: 180px;
+    min-height: 100%;
+    justify-content: center;
+    position: absolute;
+    object-fit: cover;
+    border-radius: 6px;
+    /* these transitions are specifically for the image hover */
+    -webkit-transition: background 1s ease-out;
+    -moz-transition: background 1s ease-out;
+    -o-transition: background 1s ease-out;
+    transition: background 1s ease-out;
+}
+/*
+.box-01 img:hover {
+    top: 0;
+    left: 25%;
+    width: 50vw;
+    background-size: scale down; 
+    position: fixed;
+    z-index: 1; 
+}
+*/
+.circle-01 {
+    width: 80px;
+    height: 80px;
+    background-image: radial-gradient(
+    farthest-corner at 40px 40px,
+    var(--royal) 65%,
+    var(--gold) 60%
+    );
+    border-radius: 50%;
+    position: absolute;
+    right: 10%;
+    bottom: 10%;
+}
+
+i {
+    display: flex;
+    font-size: 40px;
+    color: white;
+    position: absolute;
+    left: 35%;
+    bottom: 25%;
+    color: var(--gold); 
+}
+
+.my-name {
+    color: var(--gold);
+    position: absolute;
+    bottom: 5%;
+    left: 20%;
+    font-size: 40px;
+    font-family: "Ailerons", sans-serif;
+}
+
+.id-num {
+    color: var(--gold);
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    font-size: 24px;
+    font-family: "Ailerons", sans-serif;
+}
+/*  ---------------playing around with
+.x {
+    font-size: 200px;
+    color: red;
+    position: absolute;
+    top: -45%;
+    right: 10%;
+    overflow: hidden;
+}
+
+.z {
+    font-size: 200px;
+    color: red;
+    position: relative;
+    top: -110%;
+    right: 120%;
+    overflow: hidden;
+}
+-------------random letter placement*/
+
+.first-break {
+    width: 100vw;
+    height: 50vh;
+    background: lightyellow;
+}
+
+hr {
+    width: 30%;
+    border: 1.5px solid rgb(158, 158, 158);
+}
+
+blockquote {
+    position: relative;
+    font-size: 24px;
+    margin: 50 auto;
+    text-align: center;
+    top: 40%;
+}
+
+.peep.first {
+    background: var(--back-box);
+}
+
+.peep.second {
+    background: var(--sec-back-box);
+}
+
+.peep.third {
+    background: var(--back-box);
+}
+
+.row-two {
+    background: rgb(40, 53, 147);
+}
+
+.card-01, .card-02, .card-03 {
+    position: relative;
+    flex: 1;
+    max-width: 33%;
+    height: 316.6667px;
+}
+
+@media screen and (max-width: 800px) {
+    body {
+        overflow-y: scroll;
+    }
+    .card-01, .card-02, .card-03 {
+        flex: 100%;
+        max-width: 700px;
+    }
+    .box-01 {
+        height: 75%;
+        top: -8%;
+        left: 10%;
+    }
+    .box-01 img {
+        height: 100%;
+        width: 100%;
+    }
+    .my-name {
+        left: 8%;
+        bottom: 8%;
+        font-size: 40px;
+    }
+    .id-num {
+        font-size: 28px
+    }
+    .container {
+        min-height: 2600px;
+    }
+    hr {
+        width: 60%;
+    }
+    blockquote {
+        top: 33%;
+    }
+    /*
+    .box-01 img:hover {
+        top: 0;
+        left: 7%;
+        width: 85vw;
+        object-fit: cover;
+    }
+    */
+}
