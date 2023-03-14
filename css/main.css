@@ -266,6 +266,7 @@ a {
     h2#men {
         left: 20%;
     }
+    /* ---remove until the browser comp. issue is fixed
     .box-1 {
         left: 20%;
         top: 21%;
@@ -290,4 +291,5 @@ a {
         width: 20%;
         height: 3%;
     }
+    */
 }
