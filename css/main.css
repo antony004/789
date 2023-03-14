@@ -5,6 +5,9 @@
 
 :root {
     --royal: rgb(26, 35, 126);
+    --back-box: rgba(0, 229, 255, .1);
+    --sec-back-box: rgba(13, 71, 161, .8);
+    --gold: rgb(255, 234, 0);
 }
 /* not sure why I couldn't get this one to work -
 
@@ -15,30 +18,31 @@
 
 figure out later */
 
-* {
-    box-sizing: border-box;
-}
-
 body {
     background-color: var(--royal);
-    overflow: hidden;
+    overflow: scroll;
     margin: 0;
     padding: 0;
 }
 
 /* .options and .selections - is how to put 2 divs side to side. Then used a media query to change direction to 'column' for responsivenesss */
 
-.options {
+.container {
+    /*
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     position: relative;
+    */
 }
 
-.selections {
-    flex: 1;
-    float: left;
-    z-index: 2;
+.row {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;  
 }
 
 .name {
@@ -142,7 +146,6 @@ a {
     height: 50%;
     background-color: rgba(0, 229, 255, .1);
     border-radius: 10px;
-    box-shadow: 10px 10px 15px rgb(255, 245, 157);
     /* these next four is to center it within the div*/
     position: relative;
     top: 50%;
@@ -150,59 +153,56 @@ a {
     transform: translate(0, -50%);
 }
 
-.backboard.two {
-    width: 50%;
-    height: 50%;
-    background-color: rgba(0, 229, 255, .1);
-    border-radius: 10px;
-    box-shadow: -8px 10px 11px rgb(255, 245, 157);
-    position: relative;
-    top: 50%;
-    transform: translate(0, -50%);  
+.backboard.b-men {
+    box-shadow: 10px 10px 15px rgb(255, 245, 157);
+}
+
+.backboard.b-women {
+    box-shadow: -10px -10px 15px rgb(255, 245, 157);
 }
 
 .box-1 {
-    width: 35%;
-    height: 40%;
+    width: 12%;
+    height: 15%;
     background-color: rgba(0, 229, 255, .1);
     border-radius: 6px;
     position: absolute;
-    top: -3%;
-    left: 10%;
+    top: 32%;
+    left: 12%;
 }
 
 .box-2 {
-    width: 30%;
-    height: 8%;
+    width: 7%;
+    height: 3%;
     background-color: rgba(0, 229, 255, .1);
     border-radius: 3px;
     position: absolute;
-    right: 8%;
-    bottom: 5%;
-    box-shadow: -11px -7px 12px rgb(255, 245, 157);
+    top: 65%;
+    left: 26%;
+    box-shadow: -8px -4px 6px rgb(255, 245, 157);
 }
 
 .box-3 {
-    width: 25%;
-    height: 45%;
+    width: 7%;
+    height: 20%;
     background-color: rgba(0, 229, 255, .1);
-    border-radius: 3px;
+    border-radius: 6px;
     position: absolute;
-    right: -8%;
-    bottom: 10%;
+    right: 14%;
+    bottom: 32%;
 }
 
 .box-4 {
-    width: 45%;
-    height: 10%;
+    width: 8%;
+    height: 4%;
     background-color: rgba(0, 229, 255, .1);
     border-radius: 3px;
     position: absolute;
-    left: 4%;
-    top: 6%;
-    box-shadow: 10px 11px 14px rgb(255, 245, 157);
+    right: 30%;
+    bottom: 57%;
+    box-shadow: 8px 7px 9px rgb(255, 245, 157);
 }
-
+/*
 .line-1 {
     width: 25%;
     height: .5%;
@@ -210,7 +210,7 @@ a {
     border-radius: 1px ;
     position: absolute;
     right: 10%; 
-    /* filter: blur(1px); */
+    filter: blur(1px);
     box-shadow: 1px 1px 9px 3px rgb(0, 229, 255);
 }
 
@@ -225,7 +225,8 @@ a {
             filter: blur(2px);
     box-shadow: 1px 1px 9px 3px rgb(0, 229, 255);
 }
-/*
+
+
 .line-3 {
     width: 42%;
     height: .5%;
@@ -237,7 +238,7 @@ a {
     filter: blur(1px);
     box-shadow: 0 0 10px 2px rgb(0, 229, 255);
 }
-*/
+
 
 .line-4 {
     width: .5%;
@@ -250,22 +251,43 @@ a {
             filter: blur(0px);
     box-shadow: 1px 1px 9px 3px rgb(0, 229, 255);
 }
+------ earlier box decorations           */
 
 @media screen and (max-width: 800px) {
-    .options {
-        flex-direction: column;
-    }
     .men, .women {
-    width: 100%;
+        width: 100%;
+        height: 40vh;
     }
     .backboard {
         width: 70%;
+        height: 70%;
         left: 15%;
-    }
-    .backboard.two {
-        width: 70%;
     }
     h2#men {
         left: 20%;
+    }
+    .box-1 {
+        left: 20%;
+        top: 21%;
+        width: 28%;
+        height: 12%;
+    }
+    .box-2 {
+        left: 58%;
+        top: 45%;
+        width: 24%;
+        height: 3%;
+    }
+    .box-3 {
+        right: 10%;
+        bottom: 13%;
+        width: 24%;
+        height: 14%;
+    }
+    .box-4 {
+        right: 54%;
+        bottom: 31%;
+        width: 20%;
+        height: 3%;
     }
 }
