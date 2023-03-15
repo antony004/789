@@ -3,6 +3,12 @@
     src: href(fonts/Ailerons-Typeface.otf) format('otf');
 }
 
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
 :root {
     --royal: rgb(26, 35, 126);
     --back-box: rgba(0, 229, 255, .1);
@@ -10,26 +16,26 @@
 }
 
 body {
-    margin: 0;
-    padding: 0;
+    background-color: var(--royal);
 }
 
 section {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    position: inherit;
+    position: relative;
+    float: left;
+    overflow: scroll;
 }
 
 .groups {
     flex: 1;
     float: left;
-    background-color: var(--royal);
 }
 
 h1 {
-    z-index: 1;
     color: yellow;
+    z-index: 1;
 }
 
 a {
@@ -41,18 +47,29 @@ a {
     height: 100%;
 }
 
+.age-groups {
+    font-family: "Ailerons", sans-serif;
+    font-size: 1.7em;
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .img-container {
     background-color: var(--royal);
     display: flex;
     flex: 1;
     overflow-x: scroll;
     overflow-y: hidden;
-    position: absolute;
-    width: 50%;
+    position: relative;
+    width: 50vw;
     height: 100%;
     scroll-behavior: x mandatory;
     scroll-padding: 2px;
-    z-index: 1;
 }
 
 img {
@@ -69,15 +86,18 @@ img {
     top: 46%;
     font-size: 70px;
     text-shadow: 6px 0 18px white;
+    top: 50%;
+    transform: translate(0, 50%);
 }
 
 .icon-right {
     color: yellow;
     position: relative;
     padding: 0 8%;
-    top: 46%;
     font-size: 70px;
     text-shadow: -6px 0 18px white;
+    top: 50%;
+    transform: translate(0, 50%);
 }
 
 .new-text {
@@ -89,25 +109,21 @@ img {
     top: 46%;
     font-size: 30px;
     padding-right: 5%;
+    top: 50%;
+    transform: translate(0, 50%);
 }
 
-.age-groups {
-    font-family: "Ailerons", sans-serif;
-    font-size: 1.7em;
-    height: 100vh;
+.decor {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
     align-items: center;
-    z-index: 2;
+    float: left;
 }
 
 .eighteen {
     width: 8%;
     height: 5%;
     position: absolute;
-    bottom: 49%;
     right: 40%;
     background-color: rgba(0, 229, 255, .1);
     border-radius: 6px;
@@ -116,11 +132,10 @@ img {
 }
 
 .twenty-two {
-    width: 6%;
+    width: 5%;
     height: 3%;
     position: absolute;
-    bottom: 47%;
-    right: 26%;
+    right: 28%;
     background-color: rgba(0, 229, 255, .3);
     border-radius: 4px;
     -webkit-filter: blur(3px);
@@ -131,8 +146,7 @@ img {
     width: 7%;
     height: 2%;
     position: absolute;
-    bottom: 49.5%;
-    right: 13%;
+    right: 10%;
     background-color: rgba(0, 229, 255, .4);
     border-radius: 3px;
     -webkit-filter: blur(5px);
@@ -143,8 +157,7 @@ img {
     width: 4%;
     height: 4%;
     position: absolute;
-    bottom: 46.7%;
-    right: 1.6%;
+    right: .2%;
     background-color: rgba(0, 229, 255, .2);
     border-radius: 6px;
     -webkit-filter: blur(3px);
@@ -154,42 +167,15 @@ img {
 @media screen and (max-width: 800px) {
     .content {
         flex-direction: column;
-        height: 100vh;
+        height: 100%;
     }
     .groups {
         width: 100%;
     }
-    .age-groups {
-        flex-direction: column;
-    }
-    .eighteen {
-    width: 24%;
-    height: 3%;
-    bottom: 45%;
-    right: 31.5%;
-    }
-    .twenty-two {
-    width: 16%;
-    height: 1.5%;
-    bottom: 32%;
-    right: 49%;
-    }
-    .twenty-nine {
-    width: 17%;
-    height: 3.5%;
-    bottom: 19%;
-    right: 35%;
-    }
-    .forty-three {
-    width: 12%;
-    height: 3.5%;
-    bottom: 4.7%;
-    right: 44%;
-    }
     .img-container {
     display: flex;
     overflow-x: scroll;
-    position: absolute;
+    position: relative;
     width: 100vw;
     align-items: center;
     height: 50vh;
@@ -216,4 +202,34 @@ img {
         font-size: 13px;
         opacity: 1;
     }
+    
+    .age-groups {
+        flex-direction: column;
+    }
+    .eighteen {
+    width: 24%;
+    height: 3%;
+    bottom: 46%;
+    right: 34%;
+    }
+    .twenty-two {
+    width: 16%;
+    height: 1.5%;
+    bottom: 30%;
+    right: 49%;
+    }
+    .twenty-nine {
+    width: 17%;
+    height: 3.5%;
+    bottom: 15%;
+    right: 35%;
+    }
+    .forty-three {
+    width: 12%;
+    height: 3.5%;
+    bottom: 1%;
+    right: 44%;
+    }
+    
+    
 }
