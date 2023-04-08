@@ -3,12 +3,6 @@
     src: href(fonts/Ailerons-Typeface.otf) format('otf');
 }
 
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-
 :root {
     --royal: rgb(26, 35, 126);
     --back-box: rgba(0, 229, 255, .1);
@@ -16,26 +10,27 @@
 }
 
 body {
-    background-color: var(--royal);
+    margin: 0;
+    padding: 0;
 }
 
 section {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
-    position: relative;
-    float: left;
-    overflow: scroll;
+    position: inherit;
+    width:94vw;
 }
 
 .groups {
     flex: 1;
     float: left;
+    background-color: var(--royal);
 }
 
 h1 {
-    color: yellow;
     z-index: 1;
+    color: yellow;
 }
 
 a {
@@ -44,19 +39,9 @@ a {
 }
 
 .new-comers {
-    height: 100%;
-}
-
-.age-groups {
-    font-family: "Ailerons", sans-serif;
-    font-size: 1.7em;
-    width: 50vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+    width: 100%;
+    height: 50%;
+    padding-bottom: 10%;
 }
 
 .img-container {
@@ -66,15 +51,16 @@ a {
     overflow-x: scroll;
     overflow-y: hidden;
     position: relative;
-    width: 50vw;
-    height: 100%;
+    width: 100%;
+    height: 60vh;
     scroll-behavior: x mandatory;
     scroll-padding: 2px;
+    z-index: 1;
 }
 
 img {
     width: 50vw;
-    height: 100vh;
+    height: 50vh;
     -o-object-fit: contain;
        object-fit: contain;
 }
@@ -83,21 +69,20 @@ img {
     color: yellow;
     position: relative;
     padding-right: 5%;
-    top: 46%;
+    /*top: 46%;*/
     font-size: 70px;
     text-shadow: 6px 0 18px white;
-    top: 50%;
-    transform: translate(0, 50%);
+    align-self:center;
 }
 
 .icon-right {
     color: yellow;
     position: relative;
     padding: 0 8%;
+    /*top: 46%;*/
     font-size: 70px;
+    align-self: center;
     text-shadow: -6px 0 18px white;
-    top: 50%;
-    transform: translate(0, 50%);
 }
 
 .new-text {
@@ -106,24 +91,30 @@ img {
     font-family: "Ailerons", sans-serif;
     position: relative;
     display: flex;
-    top: 46%;
+    /*top: 46%;*/
     font-size: 30px;
+    align-self: center;
     padding-right: 5%;
-    top: 50%;
-    transform: translate(0, 50%);
 }
 
-.decor {
+.age-groups {
+    font-family: "Ailerons", sans-serif;
+    font-size: 1.7em;
+    height: 100vh;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
-    float: left;
+    z-index: 2;
+    padding-bottom:10%
 }
 
 .eighteen {
     width: 8%;
     height: 5%;
     position: absolute;
+    bottom: 49%;
     right: 40%;
     background-color: rgba(0, 229, 255, .1);
     border-radius: 6px;
@@ -132,10 +123,11 @@ img {
 }
 
 .twenty-two {
-    width: 5%;
+    width: 6%;
     height: 3%;
     position: absolute;
-    right: 28%;
+    bottom: 47%;
+    right: 26%;
     background-color: rgba(0, 229, 255, .3);
     border-radius: 4px;
     -webkit-filter: blur(3px);
@@ -146,7 +138,8 @@ img {
     width: 7%;
     height: 2%;
     position: absolute;
-    right: 10%;
+    bottom: 49.5%;
+    right: 13%;
     background-color: rgba(0, 229, 255, .4);
     border-radius: 3px;
     -webkit-filter: blur(5px);
@@ -157,7 +150,8 @@ img {
     width: 4%;
     height: 4%;
     position: absolute;
-    right: .2%;
+    bottom: 46.7%;
+    right: 1.6%;
     background-color: rgba(0, 229, 255, .2);
     border-radius: 6px;
     -webkit-filter: blur(3px);
@@ -167,15 +161,42 @@ img {
 @media screen and (max-width: 800px) {
     .content {
         flex-direction: column;
-        height: 100%;
+        height: 100vh;
     }
     .groups {
         width: 100%;
     }
+    .age-groups {
+        flex-direction: column;
+    }
+    .eighteen {
+    width: 24%;
+    height: 3%;
+    bottom: 45%;
+    right: 31.5%;
+    }
+    .twenty-two {
+    width: 16%;
+    height: 1.5%;
+    bottom: 32%;
+    right: 49%;
+    }
+    .twenty-nine {
+    width: 17%;
+    height: 3.5%;
+    bottom: 19%;
+    right: 35%;
+    }
+    .forty-three {
+    width: 12%;
+    height: 3.5%;
+    bottom: 4.7%;
+    right: 44%;
+    }
     .img-container {
     display: flex;
     overflow-x: scroll;
-    position: relative;
+    position: absolute;
     width: 100vw;
     align-items: center;
     height: 50vh;
@@ -202,34 +223,4 @@ img {
         font-size: 13px;
         opacity: 1;
     }
-    
-    .age-groups {
-        flex-direction: column;
-    }
-    .eighteen {
-    width: 24%;
-    height: 3%;
-    bottom: 46%;
-    right: 34%;
-    }
-    .twenty-two {
-    width: 16%;
-    height: 1.5%;
-    bottom: 30%;
-    right: 49%;
-    }
-    .twenty-nine {
-    width: 17%;
-    height: 3.5%;
-    bottom: 15%;
-    right: 35%;
-    }
-    .forty-three {
-    width: 12%;
-    height: 3.5%;
-    bottom: 1%;
-    right: 44%;
-    }
-    
-    
 }

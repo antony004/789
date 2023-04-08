@@ -11,7 +11,7 @@
 }
 
 body {
-    overflow: scroll;
+    /*overflow: scroll;*/
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -32,7 +32,7 @@ body {
     justify-content: center;
     flex-wrap: wrap;
     flex-direction: row;
-    padding-bottom: 5px;
+    padding-bottom: 25px;
     
 }
 /* center div within div using m, jc, p */
@@ -141,9 +141,10 @@ i {
 -------------random letter placement*/
 
 .first-break {
-    width: 100vw;
+    width: 93vw;
     height: 50vh;
     background: lightyellow;
+    margin:-5% 0 10% 0;
 }
 
 hr {
@@ -154,7 +155,7 @@ hr {
 blockquote {
     position: relative;
     font-size: 24px;
-    margin: 50 auto;
+    margin: 50px auto;
     text-align: center;
     top: 40%;
 }
