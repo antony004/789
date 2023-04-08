@@ -6,6 +6,7 @@ On the Console, run "cd 789" and then "dotnet run seeddata". This Creates the da
 3. tZiI/xPJDNcZ9TYu
 4. nk/b8kAufpOTrDOz
 }
+Server is running on https://localhost:7175
 Following the register link prompts for a referral code before registration can be completed.
 An external Email Service may be configured later for verification
 
