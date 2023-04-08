@@ -1,0 +1,20 @@
+﻿@page "/referral"
+@inject IDataService servicer
+
+<PageTitle>Referral</PageTitle>
+
+<h1>Referral</h1>
+
+<p role="status">RefCode: @refCode</p>
+
+<button class="btn btn-primary" @onclick="GenerateCode">Click me</button>
+
+@code {
+    private string refCode = "";
+
+    private void GenerateCode()
+    {
+        var refcodemodel = servicer.GenerateRefCode();
+        refCode = refcodemodel.Result.Code;
+    }
+}

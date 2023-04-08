@@ -1,0 +1,10 @@
+﻿using _789.Models;
+
+namespace _789.Services
+{
+    public interface IDataService
+    {
+        Task<ReferralCode> GenerateRefCode();
+        Task VerifyReferralCode(string ReferralCode, bool MarkAsUsed = false);
+    }
+}
