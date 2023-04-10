@@ -3,3 +3,5 @@ bin/
 #ignore objs
 
 obj/
+
+.vs/
