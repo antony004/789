@@ -1,4 +1,6 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+@import url('font-awesome/css/all.min.css');
+
 @font-face {
     font-family: "Ailerons";
     src: href(fonts/Ailerons-Typeface.otf) format('otf');
