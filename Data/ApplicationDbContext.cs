@@ -14,5 +14,6 @@ namespace _789.Data
         }
         public DbSet<QuizModel> Quizzes { get; set; }
         public DbSet<ReferralCode> ReferralCodes { get; set; }
+        public DbSet<ProfileModel> Profiles { get; set; }
     }
 }

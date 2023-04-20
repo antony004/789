@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using _789.Data;
 
@@ -11,9 +12,10 @@ using _789.Data;
 namespace _789.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230416141553_Fourth")]
+    partial class Fourth
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -77,9 +79,6 @@ namespace _789.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
-                    b.Property<Guid?>("UserProfileId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
@@ -92,38 +91,7 @@ namespace _789.Migrations
 
                     b.HasIndex("QuizId");
 
-                    b.HasIndex("UserProfileId");
-
                     b.ToTable("AspNetUsers", (string)null);
-                });
-
-            modelBuilder.Entity("_789.Models.ProfileModel", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("DOB")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DisplayName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImagePath")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Profiles");
                 });
 
             modelBuilder.Entity("_789.Models.QuizModel", b =>
@@ -138,53 +106,8 @@ namespace _789.Migrations
                     b.Property<bool>("Question10")
                         .HasColumnType("bit");
 
-                    b.Property<int>("Question11")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Question12")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Question13")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Question14")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Question15")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Question16")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Question17")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Question18")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Question19")
-                        .HasColumnType("int");
-
                     b.Property<bool>("Question2")
                         .HasColumnType("bit");
-
-                    b.Property<int>("Question20")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Question21")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Question22")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Question23")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Question24")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Question25")
-                        .HasColumnType("int");
 
                     b.Property<bool>("Question3")
                         .HasColumnType("bit");
@@ -211,6 +134,9 @@ namespace _789.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("Sign")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TrueCount")
                         .HasColumnType("int");
 
                     b.Property<string>("UserId")
@@ -382,13 +308,7 @@ namespace _789.Migrations
                         .WithMany()
                         .HasForeignKey("QuizId");
 
-                    b.HasOne("_789.Models.ProfileModel", "UserProfile")
-                        .WithMany()
-                        .HasForeignKey("UserProfileId");
-
                     b.Navigation("Quiz");
-
-                    b.Navigation("UserProfile");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

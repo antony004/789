@@ -6,5 +6,7 @@ namespace _789.Services
     {
         Task<ReferralCode> GenerateRefCode();
         Task VerifyReferralCode(string ReferralCode, bool MarkAsUsed = false);
+        Task<IEnumerable<QuizModel>> RetreiveQuizzes();
+        Task InsertQuiz(QuizModel quiz);
     }
 }
