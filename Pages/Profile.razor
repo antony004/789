@@ -1,0 +1,72 @@
+﻿@page "/Profile"
+@using System.Security.Claims
+@inject AuthenticationStateProvider provider
+@inject IDataService service
+
+<link rel="stylesheet" href="css/Profile.css" />
+<div class="ProfileDiv">
+    <section class="section">
+        
+        <h3>Profile</h3>
+
+        <hr />
+    <image src="/images/login-icon.png" class="img"/>
+    @if(EditMode == true)
+    {
+        <EditForm Model="@profile" OnSubmit="@submit">
+            <div>
+                Display Name: <InputText id="DisplayName" @bind-Value="profile.DisplayName" />
+            </div>
+            <div>
+                Description: <InputText id="Description" @bind-Value="profile.Description" />
+            </div>
+            <div>
+                Date of Birth: <InputDate id="Date of Birth" @bind-Value="profile.DOB" />
+            </div>
+            @*<InputText id="DisplayName" @bind-Value="profile.DisplayName" />*@
+            <button type="submit">Submit</button>
+        </EditForm>
+    }
+    else
+    {
+            <div>Display Name: @profile.DisplayName</div>
+        <div>Description: @profile.Description</div>
+        <div>Date of Birth :@profile.DOB</div>
+        @*<div>@profile.ImagePath</div>*@
+    }
+
+</section>
+
+
+<button onclick="@toggle" class="btn btn-primary">Edit</button>
+</div>
+
+@code {
+    private bool EditMode = false;
+    private ProfileModel profile = new();
+    private string User{get;set;}
+    private async Task GetUser()
+    {
+        var state = await provider.GetAuthenticationStateAsync();
+        var user = state.User.Claims.FirstOrDefault().Value;
+        User = user;
+        var getprofile = await service.RetreiveProfile(User);
+        profile = getprofile;
+    }
+    protected async override Task OnInitializedAsync()
+    {
+        await GetUser();
+        //return base.OnInitializedAsync();
+    }
+    private void submit()
+    {
+        profile.UserId = User;
+        profile.ImagePath = profile.ImagePath ?? ""; 
+        service.UpdateProfile(profile);
+    }
+    private void toggle()
+    {
+        EditMode = !EditMode;
+    }
+
+}

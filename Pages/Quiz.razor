@@ -1,0 +1,105 @@
+﻿@using System.Text;
+@page "/Quiz"
+<h3>Quiz</h3>
+<EditForm Model="@quiz">
+    <div>
+        <h4>Question 1</h4>
+        <InputSelect class="form-control" @bind-Value="quiz.Question1">
+            <option value="True">True</option>
+            <option value="False">False</option>
+        </InputSelect>
+    </div>
+    <div>
+        <h4>Question 2</h4>
+        <InputSelect class="form-control" @bind-Value="quiz.Question2">
+            <option value="True">True</option>
+            <option value="False">False</option>
+        </InputSelect>
+    </div>
+    <div>
+        <h4>Question 3</h4>
+        <InputSelect class="form-control" @bind-Value="quiz.Question3">
+            <option value="True">True</option>
+            <option value="False">False</option>
+        </InputSelect>
+    </div>
+    <div>
+        <h4>Question 1</h4>
+        <InputSelect class="form-control" @bind-Value="quiz.Question1">
+            <option value="True">True</option>
+            <option value="False">False</option>
+        </InputSelect>
+    </div>
+    <div>
+        <h4>Question 4</h4>
+        <InputSelect class="form-control" @bind-Value="quiz.Question4">
+            <option value="True">True</option>
+            <option value="False">False</option>
+        </InputSelect>
+    </div>
+    <div>
+        <h4>Question 5</h4>
+        <InputSelect class="form-control" @bind-Value="quiz.Question5">
+            <option value="True">True</option>
+            <option value="False">False</option>
+        </InputSelect>
+    </div>
+    <div>
+        <h4>Question 6</h4>
+        <InputSelect class="form-control" @bind-Value="quiz.Question6">
+            <option value="True">True</option>
+            <option value="False">False</option>
+        </InputSelect>
+    </div>
+    <div>
+        <h4>Question 7</h4>
+        <InputSelect class="form-control" @bind-Value="quiz.Question7">
+            <option value="True">True</option>
+            <option value="False">False</option>
+        </InputSelect>
+    </div>
+    <div>
+        <h4>Question 8</h4>
+        <InputSelect class="form-control" @bind-Value="quiz.Question8">
+            <option value="True">True</option>
+            <option value="False">False</option>
+        </InputSelect>
+    </div>
+    <div>
+        <h4>Question 9</h4>
+        <InputSelect class="form-control" @bind-Value="quiz.Question9">
+            <option value="True">True</option>
+            <option value="False">False</option>
+        </InputSelect>
+    </div>
+    <div>
+        <h4>Question 10</h4>
+        <InputSelect class="form-control" @bind-Value="quiz.Question10">
+            <option value="True">True</option>
+            <option value="False">False</option>
+        </InputSelect>
+    </div>
+</EditForm>
+<button>Submit</button>
+@code {
+    QuizModel quiz = new();
+    //public async Task GenerateQuiz()
+    //{
+    //    StringBuilder html = new();
+    //    html.Append("<form>");
+    //    for(int i = 1; i < 25; i++)
+    //    {
+    //        if (i < 11)
+    //        {
+    //            html.Append("<div>");
+    //            html.Append("<p>" + typeof(QuizModel).GetProperty($"Question{i}")?.Name + "</p>");
+    //            html.Append("<label><input type=\"radio\" name=\"" + "True" + "\"value=\"true\">True<label>");
+    //            html.Append("<label><input type=\"radio\" name=\"" + "False" + "\"value=\"false\">False<label>");
+    //            html.Append("/div>");
+    //        }
+    //    }
+    //    html.Append("<button type=\"submit\">Submit</button>");
+    //    html.Append("</form>");
+    //    //Response.Write();
+    //}
+}

@@ -68,7 +68,7 @@ namespace _789.Services
                 throw new ArgumentException($"{ex.Message}");
             }
         }
-        public async Task<IEnumerable<ProfileModel>> RetreiveUser(List<QuizModel> Quizzes)
+        public async Task<IEnumerable<ProfileModel>> RetreiveUsers(List<QuizModel> Quizzes)
         {
             try
             {
@@ -97,6 +97,42 @@ namespace _789.Services
             {
                 throw new Exception($"{ex.Message}");
             }
+        }
+        public async Task<ProfileModel> RetreiveProfile(string UserId)
+        {
+            try
+            {
+                //var User = await dbContext.Users.Include(x => x.UserProfile).FirstOrDefaultAsync(x => x.UserName == UserId);
+                var UserProfile = await dbContext.Profiles.Where(x => x.UserId == UserId).FirstOrDefaultAsync();
+                if (UserProfile is not null)
+                    return UserProfile;
+                throw new ArgumentException("Profile does not exist!");
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+        }
+        public async Task UpdateProfile(ProfileModel profile)
+        {
+            try
+            {
+                var userprofile = await dbContext.Profiles.Where(x => x.UserId == profile.UserId).FirstOrDefaultAsync();
+                if (userprofile is not null)
+                {
+                    dbContext.Profiles.Update(profile);
+                }
+                else
+                {
+                    await dbContext.Profiles.AddAsync(profile);
+                }
+                dbContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
         }
     }
 }

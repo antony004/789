@@ -8,5 +8,7 @@ namespace _789.Services
         Task VerifyReferralCode(string ReferralCode, bool MarkAsUsed = false);
         Task<IEnumerable<QuizModel>> RetreiveQuizzes();
         Task InsertQuiz(QuizModel quiz);
+        Task<ProfileModel> RetreiveProfile(string UserId);
+        Task UpdateProfile(ProfileModel profile);
     }
 }
